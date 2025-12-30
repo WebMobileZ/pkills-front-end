@@ -28,7 +28,7 @@ export class HeaderComponent {
     return this.cartService.cartCount;
   }
 
-  @HostListener("window:scroll", ["$event"])
+  @HostListener("window:scroll")
   onWindowScroll() {
     this.isScrolled.set(window.scrollY > 50);
   }
