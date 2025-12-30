@@ -1,0 +1,64 @@
+<section class="products-section">
+  <!-- Toast Notification -->
+  <p-toast></p-toast>
+
+  <div class="products-container">
+    <!-- Section Title -->
+    <h2 class="products-title">Pickles</h2>
+
+    <!-- Product Grid -->
+    <div class="products-grid">
+      @for (product of products; track product.id) {
+        <div class="product-card">
+          <!-- Product Image -->
+          <div class="product-image-wrapper">
+            <img
+              [src]="product.image"
+              [alt]="product.name"
+              class="product-image-bg"
+            />
+            <img
+              [src]="product.overlayImage"
+              [alt]="product.name"
+              class="product-image-overlay"
+            />
+
+            <!-- Veg Indicator -->
+            @if (product.isVeg) {
+              <div class="veg-indicator">
+                <div class="veg-badge">
+                  <div class="veg-dot"></div>
+                </div>
+              </div>
+            }
+          </div>
+
+          <!-- Product Info -->
+          <div class="product-info">
+            <h3 class="product-name">{{ product.name }}</h3>
+            <p class="product-price">{{ product.price }}</p>
+          </div>
+
+          <!-- Add to Cart Button -->
+          <button
+            pButton
+            type="button"
+            label="Add to Cart"
+            (click)="addToCart(product)"
+            class="add-to-cart-btn"
+          ></button>
+        </div>
+      }
+    </div>
+
+    <!-- See All Products Button -->
+    <div class="see-all-wrapper">
+      <button
+        pButton
+        type="button"
+        label="See All Products"
+        class="see-all-btn"
+      ></button>
+    </div>
+  </div>
+</section>

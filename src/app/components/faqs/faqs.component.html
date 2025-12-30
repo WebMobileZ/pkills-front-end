@@ -1,0 +1,54 @@
+<section class="faqs-section">
+  <div class="faqs-container">
+    <!-- Section Title -->
+    <h2 class="faqs-title">FAQs</h2>
+
+    <!-- FAQ List -->
+    <div class="faqs-list">
+      @for (faq of faqs; track faq.id) {
+        <div class="faq-item">
+          <!-- Question -->
+          <button class="faq-question-btn" (click)="toggleFaq(faq.id)">
+            <h3 class="faq-question">{{ faq.question }}</h3>
+
+            <!-- Toggle Icon -->
+            <svg
+              class="faq-toggle-icon"
+              [class.open]="faq.isOpen"
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 24H36"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M24 36V12"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <!-- Answer -->
+          @if (faq.isOpen) {
+            <div class="faq-answer">
+              <p>{{ faq.answer }}</p>
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- View All FAQs Button -->
+    <div class="faqs-button-container">
+      <button class="faqs-view-all-btn">View All FAQ's</button>
+    </div>
+  </div>
+</section>

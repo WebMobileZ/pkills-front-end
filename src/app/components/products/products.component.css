@@ -1,0 +1,284 @@
+.products-section {
+  background-color: #000000;
+  padding: 4rem 0;
+}
+
+@media (min-width: 1024px) {
+  .products-section {
+    padding: 6rem 0;
+  }
+}
+
+.products-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: 1024px) {
+  .products-container {
+    padding: 0 8rem;
+  }
+}
+
+.products-title {
+  font-size: 1.875rem;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 3rem;
+  letter-spacing: -0.0125em;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  background-color: #d9d9d9;
+  height: 204px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.product-image-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-image-overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 188px;
+  height: 186px;
+  object-fit: contain;
+}
+
+.veg-indicator {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 18px;
+  height: 18px;
+}
+
+.veg-badge {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.25rem;
+  border: 1px solid #4db724;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.veg-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: #4db724;
+}
+
+.product-info {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.product-name {
+  font-size: 1.25rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.0125em;
+}
+
+.product-price {
+  font-size: 1.375rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #fbbf24;
+  margin: 0;
+  letter-spacing: -0.0125em;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.0125em;
+}
+
+.see-all-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.see-all-btn {
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-family: "Rubik", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.0125em;
+}
+
+/* Override PrimeNG Button Styles */
+::ng-deep .add-to-cart-btn.p-button {
+  background-color: transparent;
+  border: 2px solid #b10a09;
+  color: #b10a09;
+  padding: 0;
+}
+
+::ng-deep .add-to-cart-btn.p-button:hover {
+  background-color: #b10a09;
+  border-color: #b10a09;
+  color: white;
+}
+
+::ng-deep .see-all-btn.p-button {
+  background-color: transparent;
+  border: 1px solid #ee4536;
+  color: #ee4536;
+}
+
+::ng-deep .see-all-btn.p-button:hover {
+  background-color: #ee4536;
+  border-color: #ee4536;
+  color: white;
+}
+
+/* Toast Notification Styling */
+::ng-deep .p-toast {
+  top: 2rem !important;
+  right: 2rem !important;
+  left: auto !important;
+}
+
+::ng-deep .p-toast-message {
+  margin: 0 0 0.5rem 0 !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%) !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: 0 10px 40px rgba(251, 191, 36, 0.3) !important;
+  overflow: hidden;
+  animation: slideInRight 0.4s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+::ng-deep .p-toast-message.p-toast-message-success {
+  background: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%) !important;
+}
+
+::ng-deep .p-toast-message-content {
+  padding: 1rem 1.5rem !important;
+  gap: 0.75rem !important;
+}
+
+::ng-deep .p-toast-message-icon {
+  font-size: 1.5rem !important;
+  color: #171717 !important;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+::ng-deep .p-toast-summary {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  color: #171717 !important;
+  line-height: 1.4;
+}
+
+::ng-deep .p-toast-detail {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 0.95rem !important;
+  color: #333333 !important;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+::ng-deep .p-toast-message-success .p-toast-message-icon {
+  color: #b10a09 !important;
+}
+
+::ng-deep .p-toast-close-icon {
+  color: #171717 !important;
+  font-size: 1.25rem !important;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+::ng-deep .p-toast-close-icon:hover {
+  opacity: 1;
+}
+
+/* Responsive Toast */
+@media (max-width: 768px) {
+  ::ng-deep .p-toast {
+    top: 1rem !important;
+    right: 1rem !important;
+    left: 1rem !important;
+  }
+
+  ::ng-deep .p-toast-message {
+    margin-bottom: 0.5rem !important;
+  }
+
+  ::ng-deep .p-toast-message-content {
+    padding: 0.75rem 1rem !important;
+  }
+
+  ::ng-deep .p-toast-summary {
+    font-size: 1rem !important;
+  }
+
+  ::ng-deep .p-toast-detail {
+    font-size: 0.875rem !important;
+  }
+}
