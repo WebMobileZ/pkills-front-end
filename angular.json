@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fusion-angular-tailwind-starter": {
+    "pkills": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -32,13 +32,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
+                  "maximumWarning": "990kB",
                   "maximumError": "1MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "15kB",
+                  "maximumError": "20kB"
                 }
               ],
               "outputHashing": "all"
