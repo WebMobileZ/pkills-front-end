@@ -12,30 +12,31 @@ env:
 
 jobs:
   build:
+    name: Build and Package
     runs-on: ubuntu-latest
-
+    permissions:
+      id-token: write
+      contents: read
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@0e613a0980cbf65ed5b322eb7a1e075d28913a83
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Setup Node.js
+      - name: Setup Node 20
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build Angular app
+      - name: Build Angular Project
         run: npm run build
 
-      - name: Upload to S3
-        run: |
-          aws s3 sync dist/pkills/browser s3://${{ env.S3BUCKET }} --delete
+      - name: Upload Artifact to S3
+        run: aws s3 cp $GITHUB_WORKSPACE/dist/pkills/ s3://${{ env.S3BUCKET }} --recursive
